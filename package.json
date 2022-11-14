@@ -1,0 +1,28 @@
+{
+  "name": "puhelinluettelo",
+  "version": "1.0.0",
+  "description": "Fullstack osa 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minervaana/FSpuhelinluettelo.git"
+  },
+  "author": "Mirka Väänänen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/minervaana/FSpuhelinluettelo/issues"
+  },
+  "homepage": "https://github.com/minervaana/FSpuhelinluettelo#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
