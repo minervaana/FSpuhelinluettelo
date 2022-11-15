@@ -1,11 +1,14 @@
 const { response } = require('express')
 const express = require('express')
 const app = express()
+const cors = require('cors')
 var morgan = require('morgan')
-morgan.token('body', function (req, res) {return JSON.stringify(req.body) })
+morgan.token('body', function (req, res) { return JSON.stringify(req.body) })
 
 app.use(express.json())
+app.use(express.static('build'))
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'))
+app.use(cors())
 
 let persons = [
     {
@@ -44,7 +47,7 @@ app.get('/api/persons', (req, res) => {
 
 app.post('/api/persons', (req, res) => {
     const body = req.body
-    
+
     if (!body.name || !body.number) {
         return res.status(400).json({
             error: 'name or number missing'
@@ -96,6 +99,7 @@ app.get('/info', (req, res) => {
     </div>`)
 })
 
-const PORT = 3001
-app.listen(PORT)
-console.log(`Server running on port ${PORT}`)
+const PORT = process.env.PORT || 3001
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`)
+})
